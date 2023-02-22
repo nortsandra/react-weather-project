@@ -5,7 +5,7 @@ export default function Footer() {
     <div className="app-footer">
       <p>
         <a
-          href="https://github.com/nortsandra/weather-app-js"
+          href="https://github.com/nortsandra/react-weather-project"
           target="_blank"
           rel="noreferrer">
           Open-source code
