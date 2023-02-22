@@ -10,7 +10,7 @@ export default function Footer() {
           rel="noreferrer">
           Open-source code
         </a>
-        by Oleksandra Kolomiiets for SheCodes Plus
+        by Oleksandra Kolomiiets for SheCodes React
       </p>
     </div>
   );
