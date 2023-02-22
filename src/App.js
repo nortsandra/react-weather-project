@@ -1,14 +1,20 @@
+import React from "react";
 import "./App.css";
-import Weather from "./Weather";
+import Header from "./Header";
+import Forecast from "./Forecast";
+import Days from "./Days";
+import Footer from "./Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Weather />
-      </header>
+    <div className="container-weather-app">
+      <Header />
+      <div className="container container-weatherinfo">
+        <Forecast />
+        <Days />
+      </div>
+      <Footer />
     </div>
   );
 }
-
-export default App;
