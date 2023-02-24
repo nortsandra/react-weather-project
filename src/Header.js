@@ -12,14 +12,14 @@ export default function Header(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
-      coordinates: response.data.coordinates,
-      temperature: response.data.temperature.current,
-      humididty: response.data.humidity,
-      date: new Date(response.data.time * 1000),
-      description: response.data.condition.description,
-      icon: response.data.condition.icon,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
-      city: response.data.city,
+      city: response.data.name,
     });
   }
 
@@ -34,7 +34,8 @@ export default function Header(props) {
 
   function search() {
     const apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    const units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
     axios.get(apiUrl).then(handleResponse);
   }
@@ -46,7 +47,7 @@ export default function Header(props) {
           <div className="row padding-bottom-line">
             <div className="col-8 searchbar-city">
               <input
-                onfocus="value=''"
+                onFocus={(event) => (event.target.value = "")}
                 type="text"
                 id="city-input"
                 placeholder="Enter a city..."
@@ -65,7 +66,6 @@ export default function Header(props) {
               <FontAwesomeIcon
                 className="location"
                 icon={faLocationCrosshairs}
-                type="button"
               />
             </div>
           </div>

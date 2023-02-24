@@ -8,6 +8,9 @@ export default function ForecastDays(props) {
 
   useEffect(() => {
     setLoaded(false);
+    const apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=hourly,current,minutely,alerts&units=metric&appid=${apiKey}`;
+    axios.get(apiUrl).then(handleForecastResponse);
   }, [props.coordinates]);
 
   function handleForecastResponse(response) {
@@ -32,10 +35,6 @@ export default function ForecastDays(props) {
       </div>
     );
   } else {
-    let apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.city}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleForecastResponse);
-
     return null;
   }
 }
