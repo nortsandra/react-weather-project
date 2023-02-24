@@ -8,6 +8,7 @@
   max-width: 700px;
   min-width: 650px;
 }
+
 body {
   background: rgb(117, 124, 96);
   font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
@@ -42,7 +43,7 @@ h1 {
 .location {
   font-size: 30px;
   padding-top: 4px;
-  color: #2d8105e3;
+  color: #b2c1a9;
 }
 
 #selected-city {
@@ -79,7 +80,7 @@ h1 {
 
 .icon-location {
   font-size: 32px;
-  color: #2d8105e3;
+  color: #b2c1a9;
   padding: 12px 10px 10px 10px;
 }
 

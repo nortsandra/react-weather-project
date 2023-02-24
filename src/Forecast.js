@@ -1,11 +1,12 @@
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
 export default function WeatherInfo() {
   return (
     <div class="row forecast-days">
       <div class="col-7 d-flex">
         <div>
-          <i class="fas fa-map-marker-alt icon-location" type="button"></i>
+          <FontAwesomeIcon className="icon-location" icon={faMapLocationDot} />
         </div>
         <div>
           <div>

@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationCrosshairs } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   return (
@@ -22,10 +24,11 @@ export default function Header() {
             />
           </div>
           <div className="col-1">
-            <i
-              className="fa-solid fa-location-crosshairs location"
-              type="submit"
-              id="get-current-city"></i>
+            <FontAwesomeIcon
+              className="location"
+              icon={faLocationCrosshairs}
+              type="button"
+            />
           </div>
         </div>
       </form>
