@@ -65,6 +65,7 @@ export default function Header(props) {
             <div className="col-1">
               <FontAwesomeIcon
                 className="location"
+                type="button"
                 icon={faLocationCrosshairs}
               />
             </div>
