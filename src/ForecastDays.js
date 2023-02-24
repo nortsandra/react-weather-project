@@ -10,7 +10,13 @@ export default function ForecastDays(props) {
     setLoaded(false);
     const apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
     const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=hourly,current,minutely,alerts&units=metric&appid=${apiKey}`;
-    axios.get(apiUrl).then(handleForecastResponse);
+    axios
+      .get(apiUrl)
+      .then(handleForecastResponse)
+      .catch((error) => {
+        console.log(error);
+        setLoaded(true);
+      });
   }, [props.coordinates]);
 
   function handleForecastResponse(response) {
