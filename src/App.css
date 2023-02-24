@@ -1,12 +1,12 @@
 .container-weather-app {
-  margin-top: 20px;
+  margin-top: 125px;
   margin-right: auto;
   margin-left: auto;
   padding: 40px 40px 20px 40px;
   border-radius: 16px;
   background: white;
   max-width: 700px;
-  min-width: 650px;
+  min-width: 700px;
 }
 
 body {
