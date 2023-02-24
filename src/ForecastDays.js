@@ -1,74 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import ForecastPreview from "./ForecastPreview";
+import axios from "axios";
 
-export default function Days() {
-  return (
-    <div className="weather-forecast" id="weather-forecast">
-      <div className="row bottom-line pb-2">
-        <div className="col">
-          <div className="weather-forecast-date weather-details">Mon</div>
-          <img
-            alt=""
-            src="https://openweathermap.org/img/wn/01d@2x.png"
-            width="52px"
-          />
-          <div className="weather-forecast-temperatures">
-            <span className="temp-max">10°</span>
-            <span className="temp-min">21°</span>
-          </div>
-        </div>
+export default function ForecastDays(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
 
-        <div className="col">
-          <div className="weather-forecast-date weather-details">Tue</div>
-          <img
-            alt=""
-            src="https://openweathermap.org/img/wn/02d@2x.png"
-            width="52px"
-          />
-          <div className="weather-forecast-temperatures">
-            <span className="temp-max">10°</span>
-            <span className="temp-min">21°</span>
-          </div>
-        </div>
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
 
-        <div className="col">
-          <div className="weather-forecast-date weather-details">Wed</div>
-          <img
-            alt=""
-            src="https://openweathermap.org/img/wn/03d@2x.png"
-            width="52px"
-          />
-          <div className="weather-forecast-temperatures">
-            <span className="temp-max">10°</span>
-            <span className="temp-min">21°</span>
-          </div>
-        </div>
+  function handleForecastResponse(response) {
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
 
-        <div className="col">
-          <div className="weather-forecast-date weather-details">Thu</div>
-          <img
-            alt=""
-            src="https://openweathermap.org/img/wn/04d@2x.png"
-            width="52px"
-          />
-          <div className="weather-forecast-temperatures">
-            <span className="temp-max">10°</span>
-            <span className="temp-min">21°</span>
-          </div>
-        </div>
-
-        <div className="col">
-          <div className="weather-forecast-date weather-details">Fri</div>
-          <img
-            alt=""
-            src="https://openweathermap.org/img/wn/11d@2x.png"
-            width="52px"
-          />
-          <div className="weather-forecast-temperatures">
-            <span className="temp-max">10°</span>
-            <span className="temp-min">21°</span>
-          </div>
-        </div>
+  if (loaded) {
+    return (
+      <div className="weather-forecast">
+        {forecast.map(function (day, index) {
+          if (index < 5) {
+            return (
+              <div className="col" key={index}>
+                <ForecastPreview data={day} />
+              </div>
+            );
+          } else {
+            return null;
+          }
+        })}
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleForecastResponse);
+
+    return null;
+  }
 }

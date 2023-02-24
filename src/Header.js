@@ -23,13 +23,6 @@ export default function Header(props) {
     });
   }
 
-  function search() {
-    const apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(handleResponse);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -37,6 +30,13 @@ export default function Header(props) {
 
   function handleCityChange(event) {
     setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
   }
 
   if (weatherData.ready) {
