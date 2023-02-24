@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Header from "./Header";
 import Forecast from "./Forecast";
-import Days from "./Days";
+import ForecastDays from "./ForecastDays";
 import Footer from "./Footer";
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
       <Header />
       <div className="container container-weatherinfo">
         <Forecast />
-        <Days />
+        <ForecastDays />
       </div>
       <Footer />
     </div>
