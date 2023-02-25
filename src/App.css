@@ -76,7 +76,7 @@ h1 {
   color: #c7c6c6;
   font-size: 14px;
   position: relative;
-  top: -5px;
+  top: 6px;
   left: 3px;
 }
 
@@ -109,12 +109,12 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 57px;
+  margin-top: 50px;
 }
 
 .temperature-number {
   display: inline-block;
-  font-size: 60px;
+  font-size: 65px;
   margin-left: 10px;
 }
 
