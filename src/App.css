@@ -21,6 +21,12 @@ h1 {
   font-size: 52px;
   margin-bottom: 28px;
 }
+
+.d-flex {
+  display: flex !important;
+  margin-top: 40px;
+}
+
 .padding-bottom-line {
   padding-bottom: 25px;
 }
