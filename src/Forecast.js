@@ -1,19 +1,27 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 export default function Forecast(props) {
   return (
     <div className="row forecast-days">
       <div className="col-7 d-flex">
         <div>
-          <i className="fas fa-map-marker-alt icon-location" type="button"></i>
+          <i className="icon-location">
+            {" "}
+            <FontAwesomeIcon
+              className="icon-location"
+              type="button"
+              icon={faLocationDot}
+            />
+          </i>
         </div>
         <div>
           <div>
             <p className="m-0" id="selected-city">
               {props.data.city}
-              <span id="country-code"></span>
             </p>
           </div>
           <div className="weather-details">
