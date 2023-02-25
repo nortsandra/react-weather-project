@@ -9,23 +9,24 @@ export default function ForecastPreview(props) {
     return days[day];
   }
 
+  console.log({ props });
   function maxTemperature() {
-    let temperature = Math.round(props.data.temperature.maximum);
+    let temperature = Math.round(props.data.temp.max);
 
     return `${temperature}°`;
   }
 
   function minTemperature() {
-    let temperature = Math.round(props.data.temperature.minimum);
+    let temperature = Math.round(props.data.temp.min);
 
     return `${temperature}°`;
   }
 
   return (
-    <div className="ForecastPreview">
+    <div className="forecastPreview">
       <div className="weather-forecast-date weather-details">{day()}</div>
-      {props.data.condition && (
-        <WeatherIcon code={props.data.condition.icon} size={38} />
+      {props.data.weather && (
+        <WeatherIcon code={props.data.weather[0].icon} size={38} />
       )}
       <div className="weather-forecast-temperature">
         <span className="temp-max">{maxTemperature()}</span>
