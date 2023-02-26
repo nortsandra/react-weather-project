@@ -54,6 +54,7 @@ h1 {
 
 #selected-city {
   font-size: 40px;
+  color: #424d37;
 }
 
 .form-control {
@@ -115,6 +116,7 @@ h1 {
   display: inline-block;
   font-size: 65px;
   margin-left: 10px;
+  color: #424d37;
 }
 
 .temperature-units {
