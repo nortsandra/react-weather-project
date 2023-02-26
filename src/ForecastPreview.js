@@ -23,7 +23,9 @@ export default function ForecastPreview(props) {
 
   return (
     <div className="forecastPreview">
-      <div className="weather-forecast-date weather-details">{day()}</div>
+      <div className="weather-forecast-date weather-details">
+        <strong>{day()}</strong>
+      </div>
       {props.data.weather && (
         <WeatherIcon code={props.data.weather[0].icon} size={38} />
       )}

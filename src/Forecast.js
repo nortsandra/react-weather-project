@@ -49,7 +49,7 @@ export default function Forecast(props) {
       </div>
       <div className="col-5 d-flex inner-weather-details">
         <div className="center-icon">
-          <WeatherIcon code={props.data.icon} size={52} />
+          <WeatherIcon code={props.data.icon} size={65} />
         </div>
         <div className="inner-temperature">
           <div className="temperature">
