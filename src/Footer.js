@@ -17,7 +17,13 @@ export default function Footer() {
           rel="noreferrer">
           Oleksandra Kolomiiets{" "}
         </a>
-        for SheCodes React
+        and hosted on {""}
+        <a
+          href="https://lustrous-marigold-3aac96.netlify.app/"
+          target="blank"
+          rel="noreferrer">
+          Netlify
+        </a>
       </p>
     </div>
   );
