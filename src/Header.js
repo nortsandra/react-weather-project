@@ -40,6 +40,19 @@ export default function Header(props) {
     axios.get(apiUrl).then(handleResponse);
   }
 
+  function myCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(currentLocation);
+  }
+
+  function currentLocation(position) {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    const apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="header">
@@ -67,6 +80,7 @@ export default function Header(props) {
                 className="location"
                 type="button"
                 icon={faLocationCrosshairs}
+                onClick={myCurrentLocation}
               />
             </div>
           </div>
